@@ -9,8 +9,10 @@ public class NpcDialogue : MonoBehaviour
     public string[] dialogueNpc;
     public int dialogueIndex;
 
-    public GameObject dialoguePanel;
+    //public GameObject dialoguePanel;
     public Text dialogueText;
+
+    public Dialogue dialogue;
 
     public Text nameNpc;
     public Image imageNpc;
@@ -22,7 +24,8 @@ public class NpcDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
+        this.dialogue = new Dialogue("Kirby", "/NPCs/Dialogues/Kirby/dialogue.txt");
     }
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class NpcDialogue : MonoBehaviour
             if (!startDialogue) {
                 FindObjectOfType<Player2>().speed = 0f;
                 StartDialogue();
+            }else{
+                FindObjectOfType<DialogueManager>().DisplayNextSentence();
             }
         }
         
@@ -40,11 +45,12 @@ public class NpcDialogue : MonoBehaviour
 
     void StartDialogue() 
     {
-        nameNpc.text = "Kirby";
-        imageNpc.sprite = spriteNpc;
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        //nameNpc.text = "Kirby";
+        //imageNpc.sprite = spriteNpc;
         startDialogue = true;
-        dialogueIndex = 0;
-        dialoguePanel.SetActive(true);
+        //dialogueIndex = 0;
+        //dialoguePanel.SetActive(true);
     }
 
     private void OnTriggerEnter2D (Collider2D collision)
