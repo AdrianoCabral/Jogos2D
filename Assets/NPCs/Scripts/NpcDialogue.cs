@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Yarn.Unity;
 public class NpcDialogue : MonoBehaviour
 {
 
@@ -11,9 +12,6 @@ public class NpcDialogue : MonoBehaviour
 
     //public GameObject dialoguePanel;
     public Text dialogueText;
-
-    public Dialogue dialogue;
-
     public Text nameNpc;
     public Image imageNpc;
     public Sprite spriteNpc;
@@ -21,36 +19,50 @@ public class NpcDialogue : MonoBehaviour
     public bool readyToSpeak;
     public bool startDialogue;
 
+    private DialogueRunner dialogueRunner;
+    private bool isCurrentConversation;
+
+    public string conversationStartNode;
+
     // Start is called before the first frame update
     void Start()
     {
         //dialoguePanel.SetActive(false);
-        this.dialogue = new Dialogue("Kirby", "/NPCs/Dialogues/Kirby/dialogue.txt");
+        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown("space") && readyToSpeak) {
-            
-            if (!startDialogue) {
-                FindObjectOfType<Player2>().speed = 0f;
-                StartDialogue();
-            }else{
-                FindObjectOfType<DialogueManager>().DisplayNextSentence();
+
+            if (!dialogueRunner.IsDialogueRunning)
+            {
+
+                StartConversation();
+                dialogueRunner.onDialogueComplete.AddListener(EndConversation);
             }
+  
         }
         
     }
 
-    void StartDialogue() 
+    private void EndConversation()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        //nameNpc.text = "Kirby";
-        //imageNpc.sprite = spriteNpc;
-        startDialogue = true;
-        //dialogueIndex = 0;
-        //dialoguePanel.SetActive(true);
+        if (isCurrentConversation)
+        {
+        FindObjectOfType<Player2>().speed = 4f;
+        isCurrentConversation = false;
+            GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefePraia);
+        }
+    }
+
+    private void StartConversation()
+    {
+        FindObjectOfType<Player2>().speed = 0f;
+        isCurrentConversation = true;
+        dialogueRunner.StartDialogue(conversationStartNode);
     }
 
     private void OnTriggerEnter2D (Collider2D collision)
