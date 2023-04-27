@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.FalouComChefePraia:
                 break;
+            case GameState.FalouComChefeVila:
+                break;
             default: 
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
@@ -41,5 +43,6 @@ public class GameManager : MonoBehaviour
     {
         InicioGame,
         FalouComChefePraia,
+        FalouComChefeVila,
     }
 }

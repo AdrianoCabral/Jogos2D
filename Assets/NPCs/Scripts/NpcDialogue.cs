@@ -52,7 +52,7 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-        FindObjectOfType<Player2>().speed = 4f;
+        FindObjectOfType<Player2>().speed = 6f;
         isCurrentConversation = false;
             GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefePraia);
         }
@@ -77,5 +77,10 @@ public class NpcDialogue : MonoBehaviour
         if (collision.CompareTag("Player")) {
             readyToSpeak = false;
         }
+    }
+
+    public void setconversationStartNode(String conversa)
+    {
+        conversationStartNode = conversa;
     }
 }
