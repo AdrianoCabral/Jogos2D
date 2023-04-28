@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Kirby : MonoBehaviour
 {
+    public NpcDialogue npcDialogue;
     void Awake()
     {
         GameManager.StateChanged += HandleStageChange;
@@ -19,6 +20,7 @@ public class Kirby : MonoBehaviour
         if(state == GameManager.GameState.FalouComChefePraia)
         {
             this.transform.position = new Vector3(100,30,0);
+            npcDialogue.setconversationStartNode("conversaChefeVila");
         }
     }
     void Start()
