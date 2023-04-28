@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95a6b1b6bae029c45b009e0e8c9704f0
-      internalID: 803376463
+      spriteID: b363a49739475d0468316252de24adb4
+      internalID: -1540219681
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc117324902854d4bb87c3fb037d54c7
-      internalID: -1102113361
+      spriteID: 1e2b1254523e2fb4cba33239804e0eb6
+      internalID: -310072692
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70fc69dc483fe8745a6d89c8eeebe916
-      internalID: -186818928
+      spriteID: 6ddc292b5e2b7e646804f268a7cbb3c5
+      internalID: -473765025
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 436e923e080e11d46b68611f607ddb6b
-      internalID: 620872188
+      spriteID: 3301a53c0d4e5544c97fc36aef183b0d
+      internalID: 1332690725
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8205142ab985ff54d9445074afe01d4a
-      internalID: 783199128
+      spriteID: 759bae42ba479bf43b4cfc5d94da3092
+      internalID: 154349470
       vertices: []
       indices: 
       edges: []
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 394d2c5e5d5415e44923fa5e92760e53
-      internalID: -777169793
+      spriteID: cd2080021cf921940b7fa8154ff78e4d
+      internalID: 1993793425
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lunanewleft_1: -1102113361
-      lunanewleft_3: 620872188
-      lunanewleft_2: -186818928
-      lunanewleft_4: 783199128
-      lunanewleft_5: -777169793
-      lunanewleft_0: 803376463
+      lunanewleft_1: -310072692
+      lunanewleft_3: 1332690725
+      lunanewleft_2: -473765025
+      lunanewleft_4: 154349470
+      lunanewleft_5: 1993793425
+      lunanewleft_0: -1540219681
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
