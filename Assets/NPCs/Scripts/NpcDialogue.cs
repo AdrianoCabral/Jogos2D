@@ -26,7 +26,6 @@ public class NpcDialogue : MonoBehaviour
     public string conversationStartNode;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -60,16 +59,17 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-        FindObjectOfType<Player2>().speed = 6f;
+        FindObjectOfType<Player2>().speed = 10f;
         isCurrentConversation = false;
         }
         if (GameManager.Instance.State == GameManager.GameState.InicioGame)
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaPraia);
-        } else if (GameManager.Instance.State == GameManager.GameState.FalouComChefeFolhaPraia)
+        }else if (GameManager.Instance.State == GameManager.GameState.FalouComChefeFolhaPraia)
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
         }
+
     }
 
     private void StartConversation()

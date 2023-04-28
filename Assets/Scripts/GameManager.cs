@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
             case GameState.ChegouVilaPedra:
                 player.transform.position = new Vector3(-72, 40, 0);
                 BarreiraEntradaVilaPedra.GetComponent<Collider2D>().enabled = false;
-
                 break;
             default: 
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
