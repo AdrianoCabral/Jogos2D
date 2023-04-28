@@ -18,11 +18,14 @@ public class NpcDialogue : MonoBehaviour
 
     public bool readyToSpeak;
     public bool startDialogue;
+    public bool chegouVilaPedra;
 
     private DialogueRunner dialogueRunner;
     private bool isCurrentConversation;
 
     public string conversationStartNode;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,11 @@ public class NpcDialogue : MonoBehaviour
                 dialogueRunner.onDialogueComplete.AddListener(EndConversation);
             }
   
+        }else if (chegouVilaPedra)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversation);
+            chegouVilaPedra = false;
         }
         
     }
@@ -54,7 +62,13 @@ public class NpcDialogue : MonoBehaviour
         {
         FindObjectOfType<Player2>().speed = 6f;
         isCurrentConversation = false;
-            GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefePraia);
+        }
+        if (GameManager.Instance.State == GameManager.GameState.InicioGame)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaPraia);
+        } else if (GameManager.Instance.State == GameManager.GameState.FalouComChefeFolhaPraia)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
         }
     }
 
@@ -82,5 +96,10 @@ public class NpcDialogue : MonoBehaviour
     public void setconversationStartNode(String conversa)
     {
         conversationStartNode = conversa;
+    }
+
+    public void setChegouVilaDePedra()
+    {
+        chegouVilaPedra = true;
     }
 }
