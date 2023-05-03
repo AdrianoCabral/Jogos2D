@@ -13,7 +13,7 @@ public class NPCsPositions : MonoBehaviour
 
     private void GameManager_StateChanged(GameManager.GameState state)
     {
-        if(state ==  GameManager.GameState.FalouComChefePraia)
+        if(state ==  GameManager.GameState.FalouComChefeFolhaPraia)
         gameObject.transform.position = new Vector3 (105, 40, 0);
     }
 
