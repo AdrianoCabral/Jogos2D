@@ -41,12 +41,12 @@ public class NpcDialogue : MonoBehaviour
 
             if (!dialogueRunner.IsDialogueRunning)
             {
-
                 StartConversation();
                 dialogueRunner.onDialogueComplete.AddListener(EndConversation);
             }
   
-        }else if (chegouVilaPedra)
+        }
+        if (chegouVilaPedra)
         {
             StartConversation();
             dialogueRunner.onDialogueComplete.AddListener(EndConversation);
@@ -68,6 +68,11 @@ public class NpcDialogue : MonoBehaviour
         }else if (GameManager.Instance.State == GameManager.GameState.FalouComChefeFolhaPraia)
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
+        }
+
+        if (chegouVilaPedra)
+        {
+           GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
         }
 
     }
@@ -93,13 +98,28 @@ public class NpcDialogue : MonoBehaviour
         }
     }
 
-    public void setconversationStartNode(String conversa)
+    public void SetconversationStartNode(String conversa)
     {
         conversationStartNode = conversa;
     }
 
-    public void setChegouVilaDePedra()
+    public void SetChegouVilaDePedra()
     {
-        chegouVilaPedra = true;
+        if (!dialogueRunner.IsDialogueRunning)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversationBarreira);
+        }
+
+    }
+
+    private void EndConversationBarreira()
+    {
+        if (isCurrentConversation)
+        {
+            FindObjectOfType<Player2>().speed = 10f;
+            isCurrentConversation = false;
+        }
+            GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
     }
 }
