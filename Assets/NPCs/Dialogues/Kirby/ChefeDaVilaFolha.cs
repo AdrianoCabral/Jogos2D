@@ -22,6 +22,10 @@ public class ChefeDaVilaFolha : MonoBehaviour
             this.transform.position = new Vector3(105,38,0);
             npcDialogue.SetconversationStartNode("conversaChefeVila");
         }
+        if(state == GameManager.GameState.posMiniGame)
+        {
+            npcDialogue.SetconversationStartNode("conversaEntreChefes");
+        }
     }
     void Start()
     {

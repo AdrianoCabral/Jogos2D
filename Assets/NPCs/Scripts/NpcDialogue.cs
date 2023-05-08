@@ -46,12 +46,6 @@ public class NpcDialogue : MonoBehaviour
             }
   
         }
-        if (chegouVilaPedra)
-        {
-            StartConversation();
-            dialogueRunner.onDialogueComplete.AddListener(EndConversation);
-            chegouVilaPedra = false;
-        }
         
     }
 
@@ -70,9 +64,13 @@ public class NpcDialogue : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
         }
 
-        if (chegouVilaPedra)
+        else if (GameManager.Instance.State == GameManager.GameState.ChegouVilaPedra)
         {
-           GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
+           GameManager.Instance.UpdateGameState(GameManager.GameState.posMiniGame);
+        }
+        else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.cenaFinal);
         }
 
     }
@@ -103,17 +101,25 @@ public class NpcDialogue : MonoBehaviour
         conversationStartNode = conversa;
     }
 
+    public void StartConversa()
+    {
+        if (!dialogueRunner.IsDialogueRunning)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversation);
+        }
+    }
     public void SetChegouVilaDePedra()
     {
         if (!dialogueRunner.IsDialogueRunning)
         {
             StartConversation();
-            dialogueRunner.onDialogueComplete.AddListener(EndConversationBarreira);
+            dialogueRunner.onDialogueComplete.AddListener(EndConversationBarreiraVila);
         }
 
     }
 
-    private void EndConversationBarreira()
+    private void EndConversationBarreiraVila()
     {
         if (isCurrentConversation)
         {
@@ -121,5 +127,24 @@ public class NpcDialogue : MonoBehaviour
             isCurrentConversation = false;
         }
             GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
+    }
+
+    public void conversaChefes()
+    {
+        if (!dialogueRunner.IsDialogueRunning)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversationEntreChefes);
+        }
+
+    }
+    private void EndConversationEntreChefes()
+    {
+        if (isCurrentConversation)
+        {
+            FindObjectOfType<Player2>().speed = 10f;
+            isCurrentConversation = false;
+        }
+        GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
     }
 }

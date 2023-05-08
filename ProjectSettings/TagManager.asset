@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Barreira
+  - ChefeTriboFolha
+  - ChefeTriboPedra
   layers:
   - Default
   - TransparentFX
