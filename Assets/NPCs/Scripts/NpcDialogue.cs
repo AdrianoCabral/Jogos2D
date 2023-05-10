@@ -53,7 +53,7 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-        FindObjectOfType<Player2>().speed = 10f;
+        FindObjectOfType<Player2>().speed = 50f;
         isCurrentConversation = false;
         }
         if (GameManager.Instance.State == GameManager.GameState.InicioGame)
@@ -70,8 +70,16 @@ public class NpcDialogue : MonoBehaviour
         }
         else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
         {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.cenaFinal);
+            GameManager.Instance.UpdateGameState(GameManager.GameState.reuniaoDasTribos);
+        } else if (GameManager.Instance.State == GameManager.GameState.reuniaoDasTribos)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.ultimaConversa);
+        } else if (GameManager.Instance.State == GameManager.GameState.ultimaConversa)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.creditos);
         }
+
+        return;
 
     }
 

@@ -8,11 +8,14 @@ Luna: <i>Mas espera aí... isso parece muito real. Será que eu realmente fui tr
 Luna: Isso não faz sentido. Como isso pode ter acontecido?
 
 Luna: <i>Minha curiosidade pelos multiversos finalmente se tornou realidade, mas agora estou em uma situação completamente desconhecida e potencialmente perigosa.</i>
+
 Luna: <i> O que eu devo fazer agora?</i>
+
 <b>Luna se sentia assustada e confusa. Não sabia como havia ido parar ali e muito menos como poderia voltar para casa.</b>
+
 <b>Ela tentou se lembrar de tudo o que havia lido e estudado sobre multiversos, mas parecia que tudo aquilo havia perdido sentido diante de sua nova situação.</b>
 
-Luna : <i>Bem, ficar parada não vai ajudar em nada. Eu preciso encontrar algumas respostas.</i>”
+Luna : <i>Bem, ficar parada não vai ajudar em nada. Eu preciso encontrar algumas respostas.</i>
 ===
 
 title: PrimeiraConversaComChefe
@@ -143,7 +146,9 @@ Luna: Fui enviada pelo Chefe da Tribo do Sul, Ybyrá para ajudar na questão da 
 
 Luna: Eu sei que você está disposto a lutar pela planta, mas acredite em mim, a violência não é a resposta.
 
-Arami: Ybyrá, huh? Vocês acham que podem simplesmente aparecer aqui e nos convencer a desistir da planta sagrada? Vocês estão enganados. Nós estamos prontos para lutar pelo que é nosso e não vamos deixar vocês levar isso embora sem uma luta.
+Arami: Ybyrá, huh? Vocês acham que podem simplesmente aparecer aqui e nos convencer a desistir da planta sagrada? Vocês estão enganados. 
+
+Arami: Nós estamos prontos para lutar pelo que é nosso e não vamos deixar vocês levar isso embora sem uma luta.
 
 Luna: Eu entendo a importância da planta sagrada para a sua tribo, mas eu gostaria de encontrar uma solução pacífica para essa questão. Talvez possamos conversar e chegar a um acordo que beneficie ambas as tribos.
 
@@ -154,11 +159,15 @@ title: posMiniGame
 ---
 Luna: por favor, reconsidere, continuar com violência só trará mais dor e sofrimento para ambas as tribos. Talvez possamos encontrar outra maneira de resolver essa questão sem recorrer à luta.
 
-Luna: O Chefe da Tribo do Sul e sua população estão profundamente preocupados com a segurança da planta, assim como vocês. Eles propuseram a ideia de que vocês dividam o cultivo da planta, assim ambos poderiam se beneficiar dela.
+Luna: O Chefe da Tribo do Sul e sua população estão profundamente preocupados com a segurança da planta, assim como vocês. 
+
+Luna: Eles propuseram a ideia de que vocês dividam o cultivo da planta, assim ambos poderiam se beneficiar dela.
 
 Arami: Dividir o cultivo? Isso não me parece justo.
 
-Luna: Entendo sua posição, mas pense em todas as consequências que a luta pela planta pode trazer. Mortes, ferimentos, prejuízos para ambas as tribos. Além disso, vocês podem negociar uma compensação para a Tribo do Norte, talvez ajudá-los com algo que eles precisem. Seria uma forma justa e pacífica de resolver essa questão.
+Luna: Entendo sua posição, mas pense em todas as consequências que a luta pela planta pode trazer. Mortes, ferimentos, prejuízos para ambas as tribos. 
+
+Luna: Além disso, vocês podem negociar uma compensação para a Tribo do Norte, talvez ajudá-los com algo que eles precisem. Seria uma forma justa e pacífica de resolver essa questão.
 
 Arami: Eu vou considerar o que você disse, mas não posso prometer nada. A planta sagrada é muito importante para nós e estamos dispostos a lutar por ela.
 
@@ -229,29 +238,48 @@ Habitante 1: Eu ainda não estou convencido, mas vou dar uma chance.
 Habitante 2: Eu também não estou 100% seguro, mas acho que é a melhor opção no momento.
 ===
 
-title: CenaFinal
+title: ReuniaoDasTribos
 ---
-As duas tribos se encontraram em um grande campo aberto, onde o cultivo da planta sagrada seria realizado em conjunto. Os habitantes da tribo do sul e do norte se misturaram, trocando cumprimentos e conversando animadamente. Algumas pessoas estavam um pouco apreensivas, mas a maioria parecia empolgada com a ideia de trabalhar juntos.
+<b> As duas tribos se encontraram em um grande campo aberto, onde o cultivo da planta sagrada seria realizado em conjunto. </b>
 
-Os chefes das tribos do sul e do norte subiram em uma pequena plataforma improvisada e chamaram a atenção de todos.
+<b> Os habitantes da tribo do sul e do norte se misturaram, trocando cumprimentos e conversando animadamente. </b>
 
-Chefe da tribo do Sul: Queridos amigos, hoje é um dia muito especial para nossas tribos. Depois de anos de conflitos, finalmente decidimos deixar nossas diferenças de lado e trabalhar juntos em paz. Sei que alguns de vocês ainda estão preocupados, mas quero garantir que essa é a melhor decisão que poderíamos ter tomado.
+<b> Algumas pessoas estavam um pouco apreensivas, mas a maioria parecia empolgada com a ideia de trabalhar juntos. </b>
 
-Arami: Durante muito tempo, a guerra foi a única resposta que tínhamos para nossos problemas. Mas hoje, estamos dando um passo à frente e mostrando que a união é mais forte do que qualquer guerra. Estamos construindo um futuro melhor para nossos filhos e netos. Sei que nem todos concordaram com essa decisão, mas quero agradecer a todos que aceitaram essa proposta e estão dispostos a trabalhar em conjunto. É uma oportunidade única de aprendermos uns com os outros e construirmos um futuro melhor.
+<b> Os chefes das tribos do sul e do norte subiram em uma pequena plataforma improvisada e chamaram a atenção de todos. </b>
 
-O discurso dos chefes foi recebido com aplausos e sorrisos. As duas tribos se uniram para cultivar a planta sagrada juntas, compartilhando conhecimento e aprendendo uns com os outros. Foi um momento histórico, e o começo de uma nova era de paz e cooperação entre as tribos.
+Ybyrá : Queridos amigos, hoje é um dia muito especial para nossas tribos. Depois de anos de conflitos, finalmente decidimos deixar nossas diferenças de lado e trabalhar juntos em paz.
+
+Ybyrá : Sei que alguns de vocês ainda estão preocupados, mas quero garantir que essa é a melhor decisão que poderíamos ter tomado.
+
+Arami: Durante muito tempo, a guerra foi a única resposta que tínhamos para nossos problemas. Mas hoje, estamos dando um passo à frente e mostrando que a união é mais forte do que qualquer guerra.
+
+Arami: Estamos construindo um futuro melhor para nossos filhos e netos. Sei que nem todos concordaram com essa decisão, mas quero agradecer a todos que aceitaram essa proposta e estão dispostos a trabalhar em conjunto.
+
+Arami: É uma oportunidade única de aprendermos uns com os outros e construirmos um futuro melhor.
+
+<b> O discurso dos chefes foi recebido com aplausos e sorrisos. As duas tribos se uniram para cultivar a planta sagrada juntas, compartilhando conhecimento e aprendendo uns com os outros. </b>
+
+<b> Foi um momento histórico, e o começo de uma nova era de paz e cooperação entre as tribos. </b>
+
+===
+
+title: UltimaConversa
+---
 
 Luna: Bom, agora que a questão da planta está resolvida, eu preciso continuar minha jornada. Mas antes, gostaria de agradecer pela sua compreensão e por ter considerado a proposta de dividir o cultivo da planta.
 
-Arami: Não há de quê. Agradeço a você e ao Chefe da Tribo do Sul por terem nos ajudado a encontrar uma solução pacífica para esse problema. Foi um prazer trabalhar com vocês.
+Arami: Não há de quê. Agradeço a você e ao Ybyrá por terem nos ajudado a encontrar uma solução pacífica para esse problema. Foi um prazer trabalhar com vocês.
 
 Luna: O prazer foi todo meu. 
 
-Chefe da Tribo Norte: Até logo, viajante. Que os ventos da sorte soprem em sua jornada.
+Arami : Até logo, viajante. Que os ventos da sorte soprem em sua jornada.
 
 Luna: Fico feliz em ter ajudado a resolver o problema entre as tribos.
 
-Chefe da Tribo: Nós também estamos gratos pela sua ajuda. Como agradecimento, gostaríamos de lhe dar esta runa que pode abrir o tunel no final dos vilarejos.  Ela vai lhe levar para tribos vizinhas, esperamos que você possa continuar sua jornada e encontrar seu caminho para casa.
+Ybyrá : Nós também estamos gratos pela sua ajuda. Como agradecimento, gostaríamos de lhe dar esta runa que pode abrir o portal na Arvore Sagrada no santuario das Capivaras. 
+
+Ybyrá : Ela vai lhe levar para tribos vizinhas, esperamos que você possa continuar sua jornada e encontrar seu caminho para casa.
 
 Luna: Obrigada. Eu vou usar essa runa com sabedoria.
 
