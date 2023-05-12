@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class GameManager : MonoBehaviour
@@ -13,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> StateChanged;
 
     private GameObject player;
+
+    private Scene _previousScene;
 
     public GameObject BarreiraVilaFolha;
     public GameObject BarreiraVilaPedra;
@@ -34,6 +38,8 @@ public class GameManager : MonoBehaviour
     public GameObject npcFolha2;
     public GameObject npcFolha3;
 
+    private bool miniGameEnded = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,12 +47,21 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         chefeTriboPedra = GameObject.FindWithTag("ChefeTriboPedra");
         chefeTriboFolha = GameObject.FindWithTag("ChefeTriboFolha");
-    }
-
-    private void Start()
-    {
+        DontDestroyOnLoad(this.gameObject);
         UpdateGameState(GameState.InicioGame);
     }
+
+    // private void Start()
+    // {
+    //     if (!miniGameEnded)
+    //     {
+    //     UpdateGameState(GameState.InicioGame);
+
+    //     }else
+    //     {
+    //         UpdateGameState(GameState.posMiniGame);
+    //     }
+    // }
 
 
     // Update is called once per frame
@@ -62,6 +77,7 @@ public class GameManager : MonoBehaviour
                 BarreiraVilaFolha.GetComponent<Collider2D>().enabled = false;
                 break;
             case GameState.FalouComChefeFolhaVila:
+                chefeTriboFolha.GetComponent<NpcDialogue>().SetconversationStartNode("repetindoConversaVila");
                 BarreiraVilaPedra.GetComponent<Collider2D>().enabled = false;
                 break;
             case GameState.ChegouVilaPedra:
@@ -72,6 +88,9 @@ public class GameManager : MonoBehaviour
                 chefeTriboPedra.transform.position = new Vector3(-13, 9, 0);
                 chefeTriboFolha.transform.position = new Vector3(-2, 9, 0);
                 TriggerConversaChefes.GetComponent<Collider2D>().enabled = true;
+                FindObjectOfType<Player2>().speed = 50f;
+               // SceneManager.LoadScene(2);
+                player.transform.position = new Vector3(-72, 40, 0);
                 break;
             case GameState.posConversaChefes:
                 TriggerConversaChefes.GetComponent<Collider2D>().enabled = false;
@@ -122,6 +141,30 @@ public class GameManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
         StateChanged?.Invoke(newState);
+    }
+
+
+    public void StartMinigame()
+    {
+        // Store the current scene
+        _previousScene = SceneManager.GetActiveScene();
+
+        // Load the minigame scene on top of the current scene
+        SceneManager.LoadScene(3, LoadSceneMode.Additive);
+
+        // Set the minigame scene as the active scene
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(3));
+    }
+
+    public void EndMinigame()
+    {
+        // Unload the minigame scene
+        SceneManager.UnloadSceneAsync(3);
+
+        // Set the previous scene as the active scene
+        SceneManager.SetActiveScene(_previousScene);
+
+        GameManager.Instance.UpdateGameState(GameManager.GameState.posMiniGame);
     }
 
     IEnumerator WaiterDialogue(String dialogue)

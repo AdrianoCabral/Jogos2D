@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 public class NpcDialogue : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-        FindObjectOfType<Player2>().speed = 10f;
+        FindObjectOfType<Player2>().speed = 50f;
         isCurrentConversation = false;
         }
         if (GameManager.Instance.State == GameManager.GameState.InicioGame)
@@ -66,7 +67,7 @@ public class NpcDialogue : MonoBehaviour
 
         else if (GameManager.Instance.State == GameManager.GameState.ChegouVilaPedra)
         {
-           GameManager.Instance.UpdateGameState(GameManager.GameState.posMiniGame);
+           GameManager.Instance.StartMinigame();
         }
         else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
         {

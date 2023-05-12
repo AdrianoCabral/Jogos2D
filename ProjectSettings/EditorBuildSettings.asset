@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/primeiroMapa.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Minigame.unity
+    guid: f2b77a8f0b21de74ba381e824ee01af7
   m_configObjects: {}
