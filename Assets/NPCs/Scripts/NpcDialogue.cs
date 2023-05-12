@@ -74,6 +74,10 @@ public class NpcDialogue : MonoBehaviour
                 GameManager.Instance.UpdateGameState(GameManager.GameState.conversaChefesNaPraia);
 
             }
+            else if (GameManager.Instance.State == GameManager.GameState.conversaChefesNaPraia)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
+            }
             else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
             {
                 GameManager.Instance.UpdateGameState(GameManager.GameState.reuniaoDasTribos);
@@ -141,8 +145,10 @@ public class NpcDialogue : MonoBehaviour
         {
             FindObjectOfType<Player2>().speed = 10f;
             isCurrentConversation = false;
-        }
             GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
+        }
+            //Debug.Log("to chegante aqui");
+            //GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
     }
 
     public void conversaChefes()
@@ -160,8 +166,9 @@ public class NpcDialogue : MonoBehaviour
         {
             FindObjectOfType<Player2>().speed = 10f;
             isCurrentConversation = false;
+            GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
         }
-        GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
+        
     }
 
     public void pararConversa()

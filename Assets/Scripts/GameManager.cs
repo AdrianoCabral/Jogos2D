@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         chefeTriboPedra = GameObject.FindWithTag("ChefeTriboPedra");
         chefeTriboFolha = GameObject.FindWithTag("ChefeTriboFolha");
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         UpdateGameState(GameState.InicioGame);
     }
 
@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
     public void StartMinigame()
     {
         chefeTriboPedra.GetComponent<NpcDialogue>().enabled = false;
-        npcDialogue.pararConversa();
+        chefeTriboPedra.GetComponent<NpcDialogue>().pararConversa();
         // Store the current scene
         _previousScene = SceneManager.GetActiveScene();
 
