@@ -89,12 +89,13 @@ public class GameManager : MonoBehaviour
                 chefeTriboPedra.GetComponent<NpcDialogue>().SetconversationStartNode("posMiniGame"); 
                 break;
             case GameState.conversaChefesNaPraia:
+                player.transform.position = new Vector3(-87, 20, 0);
                 chefeTriboPedra.transform.position = new Vector3(-13, 9, 0);
                 chefeTriboFolha.transform.position = new Vector3(-2, 9, 0);
+                chefeTriboPedra.GetComponent<NpcDialogue>().SetconversationStartNode("conversaEntreChefes");
                 TriggerConversaChefes.GetComponent<Collider2D>().enabled = true;
-                FindObjectOfType<Player2>().speed = 50f;
+                FindObjectOfType<Player2>().speed = 15f;
                 // SceneManager.LoadScene(2);
-                player.transform.position = new Vector3(-72, 40, 0);
                 break;
             case GameState.posConversaChefes:
                 TriggerConversaChefes.GetComponent<Collider2D>().enabled = false;

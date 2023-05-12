@@ -54,7 +54,7 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-            FindObjectOfType<Player2>().speed = 50f;
+            FindObjectOfType<Player2>().speed = 15f;
             isCurrentConversation = false;
 
             if (GameManager.Instance.State == GameManager.GameState.InicioGame)
@@ -143,7 +143,7 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-            FindObjectOfType<Player2>().speed = 10f;
+            FindObjectOfType<Player2>().speed = 15f;
             isCurrentConversation = false;
             GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
         }
@@ -164,7 +164,7 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-            FindObjectOfType<Player2>().speed = 10f;
+            FindObjectOfType<Player2>().speed = 15f;
             isCurrentConversation = false;
             GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
         }
