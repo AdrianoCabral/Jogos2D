@@ -41,16 +41,10 @@ public class NpcDialogue : MonoBehaviour
 
             if (!dialogueRunner.IsDialogueRunning)
             {
-
                 StartConversation();
                 dialogueRunner.onDialogueComplete.AddListener(EndConversation);
             }
   
-        }else if (chegouVilaPedra)
-        {
-            StartConversation();
-            dialogueRunner.onDialogueComplete.AddListener(EndConversation);
-            chegouVilaPedra = false;
         }
         
     }
@@ -69,6 +63,23 @@ public class NpcDialogue : MonoBehaviour
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
         }
+
+        else if (GameManager.Instance.State == GameManager.GameState.ChegouVilaPedra)
+        {
+           GameManager.Instance.UpdateGameState(GameManager.GameState.posMiniGame);
+        }
+        else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.reuniaoDasTribos);
+        } else if (GameManager.Instance.State == GameManager.GameState.reuniaoDasTribos)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.ultimaConversa);
+        } else if (GameManager.Instance.State == GameManager.GameState.ultimaConversa)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.creditos);
+        }
+
+        return;
 
     }
 
@@ -93,13 +104,55 @@ public class NpcDialogue : MonoBehaviour
         }
     }
 
-    public void setconversationStartNode(String conversa)
+    public void SetconversationStartNode(String conversa)
     {
         conversationStartNode = conversa;
     }
 
-    public void setChegouVilaDePedra()
+    public void StartConversa()
     {
-        chegouVilaPedra = true;
+        if (!dialogueRunner.IsDialogueRunning)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversation);
+        }
+    }
+    public void SetChegouVilaDePedra()
+    {
+        if (!dialogueRunner.IsDialogueRunning)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversationBarreiraVila);
+        }
+
+    }
+
+    private void EndConversationBarreiraVila()
+    {
+        if (isCurrentConversation)
+        {
+            FindObjectOfType<Player2>().speed = 10f;
+            isCurrentConversation = false;
+        }
+            GameManager.Instance.UpdateGameState(GameManager.GameState.ChegouVilaPedra);
+    }
+
+    public void conversaChefes()
+    {
+        if (!dialogueRunner.IsDialogueRunning)
+        {
+            StartConversation();
+            dialogueRunner.onDialogueComplete.AddListener(EndConversationEntreChefes);
+        }
+
+    }
+    private void EndConversationEntreChefes()
+    {
+        if (isCurrentConversation)
+        {
+            FindObjectOfType<Player2>().speed = 10f;
+            isCurrentConversation = false;
+        }
+        GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
     }
 }
