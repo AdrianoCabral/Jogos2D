@@ -54,32 +54,39 @@ public class NpcDialogue : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-        FindObjectOfType<Player2>().speed = 50f;
-        isCurrentConversation = false;
-        }
-        if (GameManager.Instance.State == GameManager.GameState.InicioGame)
-        {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaPraia);
-        }else if (GameManager.Instance.State == GameManager.GameState.FalouComChefeFolhaPraia)
-        {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
-        }
+            FindObjectOfType<Player2>().speed = 50f;
+            isCurrentConversation = false;
 
-        else if (GameManager.Instance.State == GameManager.GameState.ChegouVilaPedra)
-        {
-           GameManager.Instance.StartMinigame();
-        }
-        else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
-        {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.reuniaoDasTribos);
-        } else if (GameManager.Instance.State == GameManager.GameState.reuniaoDasTribos)
-        {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.ultimaConversa);
-        } else if (GameManager.Instance.State == GameManager.GameState.ultimaConversa)
-        {
-            GameManager.Instance.UpdateGameState(GameManager.GameState.creditos);
-        }
+            if (GameManager.Instance.State == GameManager.GameState.InicioGame)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaPraia);
+            }
+            else if (GameManager.Instance.State == GameManager.GameState.FalouComChefeFolhaPraia)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.FalouComChefeFolhaVila);
+            }
+            else if (GameManager.Instance.State == GameManager.GameState.ChegouVilaPedra)
+            {
+                GameManager.Instance.StartMinigame();
+            }
+            else if (GameManager.Instance.State == GameManager.GameState.posMiniGame)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.conversaChefesNaPraia);
 
+            }
+            else if (GameManager.Instance.State == GameManager.GameState.posConversaChefes)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.reuniaoDasTribos);
+            }
+            else if (GameManager.Instance.State == GameManager.GameState.reuniaoDasTribos)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.ultimaConversa);
+            }
+            else if (GameManager.Instance.State == GameManager.GameState.ultimaConversa)
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.creditos);
+            }
+        }
         return;
 
     }
@@ -155,5 +162,10 @@ public class NpcDialogue : MonoBehaviour
             isCurrentConversation = false;
         }
         GameManager.Instance.UpdateGameState(GameManager.GameState.posConversaChefes);
+    }
+
+    public void pararConversa()
+    {
+        dialogueRunner.Stop();
     }
 }

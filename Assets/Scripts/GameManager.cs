@@ -85,11 +85,15 @@ public class GameManager : MonoBehaviour
                 BarreiraEntradaVilaPedra.GetComponent<Collider2D>().enabled = false;
                 break;
             case GameState.posMiniGame:
+                chefeTriboPedra.GetComponent<NpcDialogue>().enabled = true;
+                chefeTriboPedra.GetComponent<NpcDialogue>().SetconversationStartNode("posMiniGame"); 
+                break;
+            case GameState.conversaChefesNaPraia:
                 chefeTriboPedra.transform.position = new Vector3(-13, 9, 0);
                 chefeTriboFolha.transform.position = new Vector3(-2, 9, 0);
                 TriggerConversaChefes.GetComponent<Collider2D>().enabled = true;
                 FindObjectOfType<Player2>().speed = 50f;
-               // SceneManager.LoadScene(2);
+                // SceneManager.LoadScene(2);
                 player.transform.position = new Vector3(-72, 40, 0);
                 break;
             case GameState.posConversaChefes:
@@ -146,6 +150,8 @@ public class GameManager : MonoBehaviour
 
     public void StartMinigame()
     {
+        chefeTriboPedra.GetComponent<NpcDialogue>().enabled = false;
+        npcDialogue.pararConversa();
         // Store the current scene
         _previousScene = SceneManager.GetActiveScene();
 
@@ -182,6 +188,7 @@ public class GameManager : MonoBehaviour
         FalouComChefeFolhaVila,
         ChegouVilaPedra,
         posMiniGame,
+        conversaChefesNaPraia,
         posConversaChefes,
         reuniaoDasTribos,
         ultimaConversa,
